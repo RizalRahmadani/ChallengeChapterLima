@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChallengeChapterLima</string>
+    <string name="login">Masuk</string>
+    <string name="create_account">Buat akun</string>
+    <string name="input_username">Masukan username</string>
+    <string name="input_password">Masukan password</string>
+
+</resources>

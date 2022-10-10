@@ -16,6 +16,7 @@ import com.example.challengechapterlima.service.RetrofitUser
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,11 +25,21 @@ class LoginActivity : AppCompatActivity() {
     lateinit var adapter : UserAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         sharedpref = this.getSharedPreferences("dataUser", Context.MODE_PRIVATE)
+
+        binding.IN.setOnClickListener {
+            setLocale("id")
+        }
+
+        binding.EN.setOnClickListener {
+            setLocale("en")
+        }
+
 
         binding.btnLogin.setOnClickListener {
             //data inputan user
@@ -90,5 +101,15 @@ class LoginActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun setLocale(lang: String?) {
+        val myLocale = Locale(lang)
+        val res = resources
+        val conf = res.configuration
+        conf.locale = myLocale
+        res.updateConfiguration(conf, res.displayMetrics)
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 }
